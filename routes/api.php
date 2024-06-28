@@ -2,14 +2,12 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PlacesController;
 use App\Http\Controllers\WeatherController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
+Route::get('get-weather', [WeatherController::class, 'getWeather']);
 
-Route::get('places/{request}', [PlacesController::class, 'getPlaces']);
-Route::get('weather', [WeatherController::class, 'getWeather']);
 
